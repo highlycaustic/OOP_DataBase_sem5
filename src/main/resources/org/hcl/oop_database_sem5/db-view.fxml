@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="532.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.hcl.oop_database_sem5.DBController">
+   <center>
+      <VBox alignment="CENTER" spacing="20.0">
+        <padding>
+          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+         <TableView fx:id="table" editable="true" VBox.vgrow="ALWAYS" />
+         <AnchorPane>
+            <children>
+               <HBox maxWidth="1.7976931348623157E308" spacing="10.0">
+                  <children>
+                    <Button onAction="#onAppendButtonClick" text="Добавить" />
+                     <Button layoutX="10.0" layoutY="10.0" onAction="#onDeleteButtonClick" text="Удалить" />
+                  </children>
+               </HBox>
+               <HBox spacing="10.0" AnchorPane.rightAnchor="0.0">
+                  <children>
+                     <TextField fx:id="searchField" promptText="Поиск..." />
+                     <ChoiceBox fx:id="searchChoiceBox" prefWidth="100.0" />
+                  </children>
+               </HBox>
+            </children>
+         </AnchorPane>
+      </VBox>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Файл">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onCreateDBButtonClick" text="Создать БД" />
+                  <MenuItem mnemonicParsing="false" onAction="#onLoadDBButtonClick" text="Загрузить" />
+                  <MenuItem mnemonicParsing="false" onAction="#onSaveDBButtonClick" text="Сохранить" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Правка">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Справка">
+            <items>
+              <MenuItem mnemonicParsing="false" text="О программе" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefHeight="3.2" prefWidth="240.0" />
+            <Label fx:id="statusText" alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="1.7976931348623157E308" textAlignment="RIGHT">
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
