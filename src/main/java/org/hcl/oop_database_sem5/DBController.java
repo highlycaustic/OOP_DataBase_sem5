@@ -168,33 +168,4 @@ public class DBController implements Initializable {
         db.saveDB();
     }
 
-//    //@FXML // TODO: УДАЛИТЬ МУСОР
-//    protected Boolean searchSelector(FineItem item) {
-//        //String sw = searchChoiceBox.getValue().toString();
-//
-//        switch (searchChoiceBox.getValue().toString()) {
-//            case "Дата":
-//                System.out.println("сработало");
-//                if (item.getDate().equals(searchField.getText())) {return true;}
-//            case "ФИО":
-//                return true;
-//            case "Паспорт":
-//                return true;
-//        }
-//        return false;
-//    }
-//
-//    @FXML
-//    protected void search() {
-//
-//        table.getItems().stream()
-//               // .filter(item -> item.getId().equals(Integer.valueOf(searchField.getText())))
-//                .filter(this::searchSelector)
-//                .findAny()
-//                .ifPresent(item -> {
-//                    table.getSelectionModel().select(item);
-//                    table.scrollTo(item);
-//                });
-//    }
-
 }
