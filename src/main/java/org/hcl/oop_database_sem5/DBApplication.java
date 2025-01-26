@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+// TODO: иконка, ксс стиль
 public class DBApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -17,7 +17,7 @@ public class DBApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void start(String[] args) {
         launch();
     }
 }
