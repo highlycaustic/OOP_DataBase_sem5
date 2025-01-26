@@ -47,19 +47,19 @@ public class DBController implements Initializable {
                 String sel = searchChoiceBox.getValue().toString();
                 if (searchField.getText().isEmpty()) {return true;}
                 if (sel.equals("Дата")) {
-                    if (fineItem.getDate().equals(searchField.getText())) {return true;}
+                    if (fineItem.getDate().contains(searchField.getText())) {return true;}
                 }
                 if (sel.equals("ФИО")) {
-                    if (fineItem.getName().equals(searchField.getText())) {return true;}
+                    if (fineItem.getName().contains(searchField.getText())) {return true;}
                 }
                 if (sel.equals("Нарушение")) {
-                    if (fineItem.getViolation().equals(searchField.getText())) {return true;}
+                    if (fineItem.getViolation().contains(searchField.getText())) {return true;}
                 }
                 if (sel.equals("Паспорт №")) {
-                    if (fineItem.getPassport().equals(searchField.getText())) {return true;}
+                    if (fineItem.getPassport().contains(searchField.getText())) {return true;}
                 }
                 if (sel.equals("Штраф")) {
-                    if (String.valueOf(fineItem.getFine()).equals(searchField.getText())) {return true;}
+                    if (String.valueOf(fineItem.getFine()).contains(searchField.getText())) {return true;}
                 }
                 return false;
             });
