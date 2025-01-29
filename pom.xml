@@ -6,7 +6,7 @@
 
     <groupId>org.hcl</groupId>
     <artifactId>OOP_DataBase_sem5</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>OOP_DataBase_sem5</name>
 
     <properties>
@@ -15,15 +15,38 @@
     </properties>
 
     <dependencies>
+        <!-- JavaFX -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>23</version>
+        </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17.0.6</version>
+            <version>23</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.6</version>
+            <version>23</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>22</version>
+        </dependency>
+        <!-- Windows dark theme https://github.com/dukke/FXThemes -->
+        <dependency>
+            <groupId>com.pixelduke</groupId>
+            <artifactId>fxthemes</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.48.0.0</version>
         </dependency>
 
         <dependency>
@@ -37,13 +60,6 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
-        <dependency>
-            <groupId>org.xerial</groupId>
-            <artifactId>sqlite-jdbc</artifactId>
-            <version>3.48.0.0</version>
         </dependency>
     </dependencies>
 
@@ -93,6 +109,15 @@
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
+                            <options>
+                                <!-- So that changing the background of a native Window works well (at least on some machines using win11) -->
+                                <option>-Dprism.forceUploadingPainter=${forceUploadingPainter}</option>
+                                <!-- For getting the native window handle (WindowUtils.getNativeHandleForStage method) -->
+                                <option>--add-opens</option>
+                                <option>javafx.graphics/javafx.stage=com.pixelduke.fxthemes</option>
+                                <option>--add-exports</option>
+                                <option>javafx.graphics/com.sun.javafx.tk.quantum=com.pixelduke.fxthemes</option>
+                            </options>
                         </configuration>
                     </execution>
                 </executions>
