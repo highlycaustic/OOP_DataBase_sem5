@@ -3,14 +3,12 @@ package org.hcl.oop_database_sem5;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.SortedList;
 
-import java.sql.*;
 import java.util.ArrayList;
 
 public class DataBase {
     private ObservableList<FineItem> finesList = FXCollections.observableArrayList();   // Список с элементами таблицы
-    private SimpleStringProperty status = new SimpleStringProperty();         // Статус
+    private SimpleStringProperty status = new SimpleStringProperty();                   // Статус
     private SQLConnector currDBConn;
 
     public DataBase() {
@@ -52,7 +50,6 @@ public class DataBase {
     }
 
     public void deleteFine(int i) {
-//        finesList.remove(item.getId() - 1);
         finesList.remove(i);
     }
 }

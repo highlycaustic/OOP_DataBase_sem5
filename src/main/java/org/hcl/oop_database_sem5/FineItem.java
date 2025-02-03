@@ -1,7 +1,5 @@
 package org.hcl.oop_database_sem5;
 
-import java.time.LocalDateTime;
-
 public class FineItem {
     private Integer id;
     private String date;
@@ -9,7 +7,7 @@ public class FineItem {
     private String violation;
     private String passport;
     private Double fine;
-
+// TODO: сделать проверки в сеттерах (на регулярках) регулярки мб в отдельный класс вынести
     public FineItem() {}
 
     public FineItem(String date, String name, String violation, String passport, Double fine) {
@@ -19,7 +17,6 @@ public class FineItem {
         setPassport(passport);
         setFine(fine);
     }
-
 
     public Integer getId() {
         return this.id;
@@ -36,7 +33,6 @@ public class FineItem {
     public void setDate(String date) {
         this.date = date;
     }
-
 
     public String getName() {
         return name;

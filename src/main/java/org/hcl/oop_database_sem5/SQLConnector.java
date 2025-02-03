@@ -69,7 +69,7 @@ public class SQLConnector {
         try {
             Statement saveSt = db_conn.createStatement();
             saveSt.execute("DELETE FROM fines;");
-
+// TODO: сделать умное обновление полей при сохранении
         for (FineItem item : dbList) {
 //                saveSt.executeQuery("IF EXISTS (SELECT * FROM fines WHERE id= \"" + item.getId() + "\" " +
 //                                        "THEN UPDATE fines SET date= \"" + item.getDate() + "\", name= \"" + item.getName() +
