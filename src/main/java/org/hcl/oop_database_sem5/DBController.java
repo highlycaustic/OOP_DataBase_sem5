@@ -168,4 +168,11 @@ public class DBController implements Initializable {
         db.saveDB();
     }
 
+    @FXML
+    protected void changeTheme() {
+        Stage stage = (Stage) rootBorderPane.getScene().getWindow();
+        themeWindowManager.setDarkModeForWindowFrame(stage, themeSwitch);
+        themeSwitch = !themeSwitch;
+    }
+
 }
