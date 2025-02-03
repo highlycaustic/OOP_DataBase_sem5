@@ -1,27 +1,30 @@
 package org.hcl.oop_database_sem5;
 
+import com.pixelduke.window.ThemeWindowManager;
+import com.pixelduke.window.ThemeWindowManagerFactory;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.converter.DoubleStringConverter;
 
+import java.io.File;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class DBController implements Initializable {
+    ThemeWindowManager themeWindowManager = ThemeWindowManagerFactory.create();
+    Boolean themeSwitch = false;
 
     DataBase db = new DataBase();
-
-    @FXML
-    private Label statusText;
-
-    @FXML
-    private TextField searchField;
-
 
     @FXML
     private TableView<FineItem> table;
@@ -34,10 +37,9 @@ public class DBController implements Initializable {
 
     @FXML
     private ChoiceBox searchChoiceBox = new ChoiceBox();
-// TODO: сделать выбор файла
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         // Оборачиваем оригинальный список в фильтруемый список
         FilteredList<FineItem> filteredFinesList = new FilteredList<>(db.getFinesList(), p -> true);
 
@@ -141,6 +143,38 @@ public class DBController implements Initializable {
         // бинд статусбара к полю статуса в DataBase
         statusText.textProperty().bind(db.getStatus());
 
+    }
+
+    @FXML
+    private BorderPane rootBorderPane;
+
+    @FXML
+    private Label statusText;
+
+    @FXML
+    private TextField searchField;
+
+    @FXML
+    protected File openFileDialog() { // TODO: фильтрация по расширению, вынести в тело контролера установку пути
+        FileChooser chooser = new FileChooser();
+        String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
+        chooser.setInitialDirectory(new File(currentPath));
+        chooser.setTitle("Открыть файл");
+        return chooser.showOpenDialog(rootBorderPane.getScene().getWindow());
+    }
+
+    @FXML
+    protected void saveAsFileDialog(ActionEvent event) {
+        FileChooser chooser = new FileChooser();
+        String currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
+        chooser.setInitialDirectory(new File(currentPath));
+        chooser.setTitle("Сохранить файл");
+        chooser.showSaveDialog(rootBorderPane.getScene().getWindow());
+    }
+
+    @FXML
+    protected void openFile() { // TODO: доделать открытие и сохранение
+        System.out.println(openFileDialog().getName());
     }
 
     @FXML

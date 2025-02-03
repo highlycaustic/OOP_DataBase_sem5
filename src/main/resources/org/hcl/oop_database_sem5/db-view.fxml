@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="532.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.hcl.oop_database_sem5.DBController">
+<BorderPane fx:id="rootBorderPane" prefHeight="532.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.hcl.oop_database_sem5.DBController">
    <center>
       <VBox alignment="CENTER" spacing="20.0">
         <padding>
@@ -35,13 +35,15 @@
           <Menu mnemonicParsing="false" text="Файл">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#onCreateDBButtonClick" text="Создать БД" />
+                  <MenuItem fx:id="openFileMenuItem" mnemonicParsing="false" onAction="#openFile" text="Открыть" />
                   <MenuItem mnemonicParsing="false" onAction="#onLoadDBButtonClick" text="Загрузить" />
                   <MenuItem mnemonicParsing="false" onAction="#onSaveDBButtonClick" text="Сохранить" />
+                  <MenuItem fx:id="saveAsFileMenuItem" mnemonicParsing="false" onAction="#saveAsFileDialog" text="Сохранить как" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Правка">
+          <Menu mnemonicParsing="false" text="Вид">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#changeTheme" text="Сменить тему" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Справка">
