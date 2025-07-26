@@ -48,7 +48,7 @@ public class DataBase {
         finesList.add(f);
         status.set("Запись добавлена");
     }
-//
+
     public void deleteFine(int i) {
         finesList.remove(i);
     }
